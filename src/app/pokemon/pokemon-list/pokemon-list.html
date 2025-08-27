@@ -1,0 +1,48 @@
+<div class="lg:w-3/4 w-5/6 mx-auto my-8 md:my-12">
+
+  <form class="max-w-md mx-auto mb-8">
+      <!-- <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label> -->
+      <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+          </div>
+          <input type="search" id="search" class="block w-full p-4 ps-10 text-sm text-gray-700 border border-gray-200 rounded bg-gray-50
+          focus:ring-green-200 focus:border-green-500"
+          type="text"
+          name="searchTerm"
+          #searchField
+          [value]="searchTerm()"
+          (input)="searchTerm.set(searchField.value)"
+          placeholder="Rechercher un pokémon" required />
+      </div>
+  </form>
+    @if (loading()) {
+      <div class="flex items-center mx-auto my-56 space-x-2 text-gray-600 py-4 justify-center">
+        <svg class="animate-spin h-16 w-16 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+        </svg>
+        <span>Chargement...</span>
+      </div>
+    }
+  <div class="grid gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+    @for (pokemon of pokemonListFiltered(); track pokemon.id) {
+      <a [routerLink]="['/pokemons', pokemon.id]" class="card bg-gray-100 border border-gray-200 shadow rounded" appPokemonBorder [pokemonType] ="pokemon.types[0]">
+        <div class="flex flex-row">
+          <div class="w-2/5 rounded flex items-center justify-center bg-white">
+            <img [src]="pokemon.picture" [alt]="pokemon.name" class="max-h-24">
+          </div>
+          <div class="w-3/5 flex p-4 flex-col space-y-1">
+            <h5 class="text-lg font-bold">{{ pokemon.name }}</h5>
+            <h6 class="font-semibold text-gray-800">Taille: <span class="text-blue-500">{{ size(pokemon) }}</span></h6>
+            <p class="">{{ pokemon.created | date: "dd/mm/yyyy"}}</p>
+            <p class="font-semibold text-gray-800">Points de vie : {{ pokemon.life }}</p>
+            <p class="font-semibold text-gray-800"> Dégâts: {{ pokemon.damage }}</p>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+</div>

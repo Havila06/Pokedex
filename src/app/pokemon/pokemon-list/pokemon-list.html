@@ -1,4 +1,4 @@
-<div class="lg:w-3/4 w-5/6 mx-auto my-8 md:my-12">
+<div class="lg:w-3/4 w-5/6 mx-8 md:mx-auto my-8 md:my-12">
   <div class="grid gap-5 mb-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
     <!-- Search bar -->
     <form class="w-full col-span-1">
@@ -53,7 +53,7 @@
           <div class="w-3/5 flex p-4 flex-col space-y-1">
             <h5 class="text-lg font-bold">{{ pokemon.name }}</h5>
             <h6 class="font-semibold text-gray-800">Taille: <span class="text-blue-500">{{ size(pokemon) }}</span></h6>
-            <p class="">{{ pokemon.created | date: "dd/mm/yyyy"}}</p>
+            <p class="">{{ pokemon.created | date: "dd/MM/yyyy"}}</p>
             <p class="font-semibold text-gray-800">Points de vie : {{ pokemon.life }}</p>
             <p class="font-semibold text-gray-800"> Dégâts: {{ pokemon.damage }}</p>
           </div>

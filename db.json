@@ -5,9 +5,11 @@
       "name": "Bulbizarre",
       "life": 25,
       "damage": 5,
-      "picture":
-        "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
-      "types": ["Plante", "Poison"],
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
+      "types": [
+        "Plante",
+        "Poison"
+      ],
       "created": "2024-08-16T00:00:00Z"
     },
     {
@@ -133,6 +135,18 @@
         "Feu"
       ],
       "created": "2024-08-16T00:00:00Z"
+    },
+    {
+      "name": "Ratatouille",
+      "picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/041.png",
+      "life": 10,
+      "damage": 1,
+      "types": [
+        "Normal",
+        "Vol"
+      ],
+      "created": "2025-09-04T18:57:43.374Z",
+      "id": 13
     }
   ]
 }

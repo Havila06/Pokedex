@@ -10,8 +10,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'app-pokemon-list',
   imports: [PokemonBorder, DatePipe, RouterLink],
   templateUrl: './pokemon-list.html',
-  styles: ``,
-  providers: [PokemonService]
+  styles: ``
 })
 export class PokemonList {
   readonly #pokemonService = inject(PokemonService);

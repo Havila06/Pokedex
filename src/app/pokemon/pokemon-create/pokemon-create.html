@@ -1,5 +1,5 @@
 
-<div class="mt-16 md:mx-auto md:px-0 mx-6 md:w-2/3 rounded border border-gray-200 flex flex-col md:flex-row ">
+<div class="md:mt-16 mt-6 md:mx-auto md:px-0 mx-6 md:w-2/3 rounded border border-gray-200 flex flex-col md:flex-row ">
 
   <div class="w-1/3 md:flex hidden items-center justify-center bg-gray-200">
     <img
@@ -9,8 +9,8 @@
   </div>
 <div class="md:w-2/3 h-full">
   <form (ngSubmit)="onSubmit()"
-  [formGroup]="form" class="flex px-8 py-6 flex-col space-y-1">
-    <h4 class="text-2xl md:text-start text-center mb-6 text-gray-700 font-bold">Ajouter un nouveau Pokémon</h4>
+  [formGroup]="form" class="flex px-4 md:px-8 py-6 flex-col space-y-1">
+    <h4 class="text-xl md:text-2xl md:text-start text-center mb-6 text-gray-700 font-bold">Ajouter un nouveau Pokémon</h4>
     <div class="border-b border-gray-200 py-2">
       <div class="flex flex-row items-center">
         <h5 class="w-1/3 text-gray-700 font-medium">Nom:</h5>
@@ -177,11 +177,8 @@
       </button>
       <button
       type="submit"
-      [disabled]="form.invalid"
-      [class.bg-green-300]="form.invalid"
-      [class.bg-green-500]="form.valid"
-      class="flex-1 py-2 text-white font-medium rounded shadow-md hover:bg-green-600 transition duration-200">
-        Sauvegarder 
+      class="flex-1 py-2 text-white bg-green-500 font-medium rounded shadow-md hover:bg-green-600 transition duration-200">
+        Sauvegarder
       </button>
     </div>
   </form>

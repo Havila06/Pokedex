@@ -48,13 +48,13 @@
         </div>
 
       </div>
-      
+
       <div class="flex flex-row items-center border-b border-gray-200 py-2">
         <h5 class="w-1/3 text-gray-700 font-medium">Points de vie:</h5>
         <div class="w-2/3 flex flex-row items-center">
           <button type="button"
           (click)="decrementLife()"
-          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l" 
+          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l"
           [disabled]="pokemonLife.value <= POKEMON_RULES.MIN_LIFE">
             -
           </button>
@@ -78,11 +78,11 @@
         <div class="w-2/3 flex flex-row items-center">
           <button type="button"
           (click)="decrementDamage()"
-          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l" 
+          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l"
           [disabled]="pokemonDamage.value <= POKEMON_RULES.MIN_DAMAGE">
             -
           </button>
-          <input 
+          <input
             formControlName="damage"
             type="number"
             class="h-11 w-full text-gray-700 font-medium text-center bg-gray-50 border border-gray-300 text-sm focus:ring-blue-500 focus:border-blue-500"
@@ -90,7 +90,7 @@
           />
           <button type="button"
           (click)="incrementDamage()"
-          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-r" 
+          class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-r"
           [disabled]="pokemonDamage.value >= POKEMON_RULES.MAX_DAMAGE">
             +
           </button>
@@ -106,7 +106,7 @@
               (click)="pokemonTypeList.removeAt(index)"
               [style.backgroundColor]="getPokemonColor(type.value)"
               [style.color]="getChipTextColor(type.value)"
-              class="mb-2 mr-3 font-semibold px-3 py-1 rounded-full"
+              class="mb-2 mr-3 font-semibold px-3 py-1 rounded-md"
             >
               {{ type.value }} <span class=" ml-1 badge">x</span>
             </button>
@@ -114,9 +114,9 @@
           @if (pokemonTypeList.hasError('required')) {
             <div class="text-xs mt-1 text-red-500">Veuillez sélectionner au moins un type pour un Pokémon.</div>
           }
-          
+
           @if (pokemonTypeList.hasError('maxlength')) {
-            <div class="text-xs mt-1 text-red-500">Veuillez sélectionner 
+            <div class="text-xs mt-1 text-red-500">Veuillez sélectionner
               au maximun {{ pokemonTypeList.getError('maxlength').requiredLength }} types pour un Pokémon.</div>
           }
           <div class="mt-5 grid grid-cols-3">
@@ -142,14 +142,14 @@
             </div>
             }
           </div>
-          
+
         </div>
       </div>
       <div class="flex flex-row mt-4 space-x-4">
         <button type="button" [routerLink]="['/pokemons', pokemon.id]" class="flex-1 py-2 bg-gray-500 text-white font-medium rounded shadow-md hover:bg-gray-600 transition duration-200">
           Retour
         </button>
-        <button 
+        <button
         type="submit"
         [disabled]="form.invalid"
         [class.bg-green-300]="form.invalid"
@@ -170,7 +170,7 @@
     <span>Chargement...</span>
   </div>
 }
-    
+
 
 
 

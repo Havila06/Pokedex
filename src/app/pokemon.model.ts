@@ -8,8 +8,6 @@ export interface Pokemon {
   created: Date;
 }
 
-export type PokemonList = Pokemon[];
-
 export const POKEMON_RULES = {
   NAME_PATTERN: /^[a-zA-Zéè]+$/,
   MAX_NAME: 20,
@@ -46,3 +44,4 @@ export function getPokemonColor(type:string): string {
         return '#adababff';
     }
 }
+export type PokemonList = Pokemon[];

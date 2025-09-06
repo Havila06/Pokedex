@@ -1,5 +1,5 @@
 <div class="lg:w-3/4 w-5/6 mx-8 md:mx-auto my-8 md:my-12">
-  <div class="grid gap-5 mb-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+  <div class="flex justify-center mx-auto md:w-1/2 mb-8">
     <!-- Search bar -->
     <form class="w-full col-span-1">
       <div class="relative">
@@ -15,6 +15,7 @@
           name="searchTerm"
           #searchField
           [value]="searchTerm()"
+          [disabled]="this.pokemonListRessource.isLoading()"
           (input)="searchTerm.set(searchField.value)"
           placeholder="Rechercher un pokémon"
           required
@@ -23,26 +24,34 @@
         />
       </div>
     </form>
-    <div></div>
-    <button
-      routerLink="/pokemons/create"
-      class="w-full py-3 bg-green-500 text-white font-medium rounded shadow-md hover:bg-green-600 transition duration-200">
-      Ajouter un Pokémon
-    </button>
+
   </div>
 
 
 
-    @if (loading()) {
-      <div class="flex items-center mx-auto my-56 space-x-2 text-gray-600 py-4 justify-center">
-        <svg class="animate-spin h-16 w-16 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
-        </svg>
-        <span>Chargement...</span>
-      </div>
-    }
+  @if (loading()) {
+    <div class="flex items-center mx-auto my-56 space-x-2 text-gray-600 py-4 justify-center">
+      <svg class="animate-spin h-16 w-16 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+      </svg>
+      <span>Chargement...</span>
+    </div>
+  }
 
+  <div class=" mb-8  grid gap-3 grid-cols-[repeat(auto-fit,minmax(100px,1fr))]">
+    @for(type of typeList(); track type) {
+      <button
+        type="button"
+        class="py-2 px-4 "
+        [ngClass]="typeSelected() === type ? 'rounded bg-purple-700 text-white' : ' text-gray-800 font-medium'"
+        [class.btn-secondary]="typeSelected() === type"
+        (click)="filterByType(type)"
+        >
+        {{ type }}
+      </button>
+    }
+  </div>
   <div class="grid gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
     @for (pokemon of pokemonListFiltered(); track pokemon.id) {
       <a [routerLink]="['/pokemons', pokemon.id]" class="card bg-gray-100 border border-gray-200 shadow rounded" appPokemonBorder [pokemonType] ="pokemon.types[0]">
@@ -60,5 +69,12 @@
         </div>
       </a>
     }
+  </div>
+  <div class="flex justify-end mt-8">
+    <button
+      routerLink="/pokemons/create"
+      class="w-1/4 py-3 bg-green-500 text-white font-medium rounded shadow-md hover:bg-green-600 transition duration-200">
+      Ajouter un Pokémon
+    </button>
   </div>
 </div>

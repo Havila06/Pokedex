@@ -6,13 +6,13 @@ import { delay, Observable, of } from "rxjs";
     providedIn: 'root'
 })
 export class AuthService {
-    readonly #isloggedIn = signal(false);
-    readonly isloggedIn = this.#isloggedIn.asReadonly();
+    // readonly #isloggedIn = signal(false);
+    // readonly isloggedIn = this.#isloggedIn.asReadonly();
 
-    login(name: string, password: string): Observable<boolean>{
-        const isloggedIn = name == 'Pikachu' && password == 'Pikachu#';
+    // login(name: string, password: string): Observable<boolean>{
+    //     const isloggedIn = name == 'Pikachu' && password == 'Pikachu#';
 
-        this.#isloggedIn.set(isloggedIn);
-        return of(isloggedIn).pipe(delay(1000));
-    }
+    //     this.#isloggedIn.set(isloggedIn);
+    //     return of(isloggedIn).pipe(delay(1000));
+    // }
 }

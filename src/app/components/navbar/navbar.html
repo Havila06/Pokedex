@@ -1,0 +1,170 @@
+<nav class="fixed top-0 z-50 w-full bg-purple-600 shadow lg:px-16 px-6 py-4">
+  <div class="flex items-center justify-between">
+    <!-- Logo (toujours visible) -->
+    <h3 class="text-2xl lg:hidden font-bold text-white cursor-pointer" routerLink="/">
+      Pokédex
+    </h3>
+
+    <button
+      (click)="navbarOpen = !navbarOpen"
+      class="lg:hidden flex flex-col justify-between h-6 w-6 focus:outline-none group"
+      aria-label="Toggle menu"
+    >
+      <svg *ngIf="!navbarOpen"xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="w-6 h-6 text-white hover:text-yellow-400 ">
+        <path d="M16 132h416c8.837 0 16-7.163 16-16V84c0-8.837-7.163-16-16-16H16C7.163 68 0 75.163 0 84v32c0 8.837 7.163 16 16 16zm416 56H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0 104H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/>
+      </svg>
+
+      <!-- Croix -->
+      <svg *ngIf="navbarOpen" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 320 512" class="w-6 h-6 text-white hover:text-yellow-400 ">
+        <path d="M310.6 361.4c12.5 12.5 12.5 32.8 0 45.3l-22.6 22.6c-12.5 12.5-32.8 12.5-45.3 0L160 301.3 77.3 384c-12.5 12.5-32.8 12.5-45.3 0L9.4 361.4c-12.5-12.5-12.5-32.8 0-45.3L92.1 256 9.4 173.3c-12.5-12.5-12.5-32.8 0-45.3l22.6-22.6c12.5-12.5 32.8-12.5 45.3 0L160 210.7l82.7-82.7c12.5-12.5 32.8-12.5 45.3 0l22.6 22.6c12.5 12.5 12.5 32.8 0 45.3L227.9 256l82.7 82.7z"/>
+      </svg>
+
+    </button>
+    <!-- Menu desktop -->
+    <div class="hidden lg:flex lg:items-center lg:w-full">
+      <!-- Logo gauche -->
+      <div class="flex-shrink-0">
+        <h3 class="text-2xl font-bold text-white cursor-pointer" routerLink="/">
+          Pokédex
+        </h3>
+      </div>
+
+      <!-- Liens au centre -->
+     <ul class="flex-1 flex justify-center list-none text-white font-normal space-x-6">
+      <li>
+        <a routerLink="/"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Accueil
+        </a>
+      </li>
+      <li>
+        <a routerLink="/pokedex"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Pokédex
+        </a>
+      </li>
+      <li>
+        <a routerLink="/types"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Types
+        </a>
+      </li>
+      <li>
+        <a routerLink="/generations"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Générations
+        </a>
+      </li>
+      <li>
+        <a routerLink="/favoris"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Favoris
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about-us"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          À propos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="cursor-pointer transition-colors duration-300">
+          Contact
+        </a>
+      </li>
+    </ul>
+
+
+      <!-- Bouton droite -->
+      <div class="flex-shrink-0">
+        <button routerLink="/register" class="hover:bg-white text-purple-600 px-4 py-2 rounded font-semibold bg-yellow-400 hover:text-purple-600 transition-colors duration-300">
+          S'inscrire
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu mobile (slide down) -->
+  <div
+    [ngClass]="navbarOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'"
+    class="lg:hidden overflow-hidden transition-all duration-500"
+  >
+    <ul class="flex flex-col list-none text-white font-normal space-y-4 lg:mb-0 mb-5">
+       <li>
+        <a routerLink="/"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Accueil
+        </a>
+      </li>
+      <li>
+        <a routerLink="/pokedex"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Pokédex
+        </a>
+      </li>
+      <li>
+        <a routerLink="/types"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Types
+        </a>
+      </li>
+      <li>
+        <a routerLink="/generations"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Générations
+        </a>
+      </li>
+      <li>
+        <a routerLink="/favoris"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Favoris
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about-us"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          À propos
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact"
+          routerLinkActive="text-yellow-400 font-bold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-yellow-400 cursor-pointer transition-colors duration-300">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <button class="w-full hover:bg-white text-purple-600 px-4 py-2 rounded font-semibold mt-2 bg-yellow-400 hover:text-purple-600 transition-colors duration-300">
+      S'inscrire
+    </button>
+  </div>
+</nav>
+

@@ -1,8 +1,8 @@
 
- @if(pokemon(); as pokemon){
+ @if(pokemonResource.value(); as pokemon){
   <div class="md:mt-16 mt-6 md:mx-auto md:px-0 mx-6 md:w-2/3 rounded border border-gray-200 flex flex-col md:flex-row ">
 
-   <div class="md:w-1/3 flex items-center justify-center bg-gray-200">
+   <div class="md:w-1/3 flex items-center justify-center bg-purple-2 00">
     <img [src]="pokemon.picture" [alt]="pokemon.name" class="">
    </div>
   <div class="md:w-2/3 h-full">
@@ -55,7 +55,7 @@
           <button type="button"
           (click)="decrementLife()"
           class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l"
-          [disabled]="pokemonLife.value <= POKEMON_RULES.MIN_LIFE">
+          [disabled]="pokemonLife.value <= POKEMON_RULES().MIN_LIFE">
             -
           </button>
           <input
@@ -67,7 +67,7 @@
           <button type="button"
           (click)="incrementLife()"
           class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-r"
-         [disabled]="pokemonLife.value >= POKEMON_RULES.MAX_LIFE">
+         [disabled]="pokemonLife.value >= POKEMON_RULES().MAX_LIFE">
             +
           </button>
         </div>
@@ -79,7 +79,7 @@
           <button type="button"
           (click)="decrementDamage()"
           class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-l"
-          [disabled]="pokemonDamage.value <= POKEMON_RULES.MIN_DAMAGE">
+          [disabled]="pokemonDamage.value <= POKEMON_RULES().MIN_DAMAGE">
             -
           </button>
           <input
@@ -91,7 +91,7 @@
           <button type="button"
           (click)="incrementDamage()"
           class="w-11 h-11 flex items-center justify-center bg-blue-200 rounded-r"
-          [disabled]="pokemonDamage.value >= POKEMON_RULES.MAX_DAMAGE">
+          [disabled]="pokemonDamage.value >= POKEMON_RULES().MAX_DAMAGE">
             +
           </button>
         </div>
@@ -105,7 +105,7 @@
             <button
               (click)="pokemonTypeList.removeAt(index)"
               [style.backgroundColor]="getPokemonColor(type.value)"
-              [style.color]="getChipTextColor(type.value)"
+
               class="mb-2 mr-3 font-semibold px-3 py-1 rounded-md"
             >
               {{ type.value }} <span class=" ml-1 badge">x</span>
@@ -146,16 +146,17 @@
         </div>
       </div>
       <div class="flex flex-row mt-4 space-x-4">
-        <button type="button" [routerLink]="['/pokemons', pokemon.id]" class="flex-1 py-2 bg-gray-500 text-white font-medium rounded shadow-md hover:bg-gray-600 transition duration-200">
+        <button type="button" class="flex-1 py-2 border border-purple-500 text-purple-700 font-medium rounded shadow-md transition duration-200"
+        [routerLink]="['/pokemons', pokemon.id]">
           Retour
         </button>
         <button
         type="submit"
         [disabled]="form.invalid"
-        [class.bg-green-300]="form.invalid"
-        [class.bg-green-500]="form.valid"
+        [class.bg-purple-300]="form.invalid"
+        [class.bg-purple-500]="form.valid"
         class="flex-1 py-2 text-white font-medium rounded shadow-md hover:bg-green-600 transition duration-200">
-          Sauvegarder 
+          Sauvegarder
         </button>
       </div>
     </form>

@@ -20,7 +20,7 @@
           placeholder="Rechercher un pokémon"
           required
           class="block w-full p-4 ps-10 text-sm text-gray-700 border border-gray-200 rounded bg-gray-50
-                focus:ring-green-200 focus:border-green-500"
+          focus:outline-none focus:ring-2 focus:ring-purple-200 focus:border-purple-500"
         />
       </div>
     </form>
@@ -61,7 +61,7 @@
           </div>
           <div class="w-3/5 flex p-4 flex-col space-y-1">
             <h5 class="text-lg font-bold">{{ pokemon.name }}</h5>
-            <h6 class="font-semibold text-gray-800">Taille: <span class="text-blue-500">{{ size(pokemon) }}</span></h6>
+            <h6 class="font-semibold text-gray-800">Taille: <span class="text-purple-700">{{ size(pokemon) }}</span></h6>
             <p class="">{{ pokemon.created | date: "dd/MM/yyyy"}}</p>
             <p class="font-semibold text-gray-800">Points de vie : {{ pokemon.life }}</p>
             <p class="font-semibold text-gray-800"> Dégâts: {{ pokemon.damage }}</p>

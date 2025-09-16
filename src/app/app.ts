@@ -1,10 +1,14 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { Navbar } from './components/navbar/navbar';
+import { Footer } from './components/footer/footer';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink],
+  standalone: true, // important si c'est un composant standalone
+  imports: [RouterOutlet, Navbar,Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrls: ['./app.css'],
 })
 export class App {
 

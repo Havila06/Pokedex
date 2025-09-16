@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+@keyframes slide-in-left {
+  0% { transform: translateX(-100%) translateY(-50%); opacity: 0; }
+  100% { transform: translateX(-25%) translateY(-50%); opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  0% { transform: translateX(100%) translateY(-50%); opacity: 0; }
+  100% { transform: translateX(25%) translateY(-50%); opacity: 1; }
+}
+
+@keyframes slide-down {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-left { animation: slide-in-left 1s ease-out forwards; }
+.animate-slide-in-right { animation: slide-in-right 1s ease-out forwards; }
+.animate-slide-down { animation: slide-down 1s ease-out 0.3s forwards; }
+.animate-slide-up { animation: slide-up 1s ease-out 0.5s forwards; }
